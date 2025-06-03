@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5990969392893529683}
   - component: {fileID: 844051245528052250}
   - component: {fileID: 3975890285085092102}
-  - component: {fileID: 2740954339051984876}
+  - component: {fileID: -6094339540817230439}
   m_Layer: 0
   m_Name: cubePrefab
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 2905558582527769096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.5, y: 13.2, z: 0.9}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 8.174616, y: 29.539118, z: -71.85031}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
@@ -133,8 +133,8 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!114 &2740954339051984876
+  m_CollisionDetection: 0
+--- !u!114 &-6094339540817230439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,9 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f19398f45e417c41b787f695b33d0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubePrefab: {fileID: 2905558582527769096}
-  explosionEffect: {fileID: 8025997823223915063, guid: a86d0c143d00b6b46b264e86846f73b0, type: 3}
-  _minNewCubes: 2
-  _maxNewCubes: 6
-  _minForceForExplosion: 15
-  _maxForceForExplosion: 40
+  _splitter: {fileID: 0}
+  colorChanger: {fileID: 0}
