@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Exploder : MonoBehaviour
 {
-    public void Explode(GameObject gameObject, float minForce, float maxForce)
+    [SerializeField] private float _minForce = 10f;
+    [SerializeField] private float _maxForce = 25f;
+
+    public void Explode(Rigidbody rigidbody)
     {
-        Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
         if (rigidbody == null)
             return;
 
         Vector3 direction = (gameObject.transform.position - transform.position).normalized;
-        float forceMag = Random.Range(minForce, maxForce);
+        float forceMag = Random.Range(_minForce, _maxForce);
         rigidbody.AddForce(direction * forceMag + Vector3.up * 1f, ForceMode.Impulse);
     }
 }

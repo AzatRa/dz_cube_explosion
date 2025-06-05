@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject CubePrefab;
+    [SerializeField] private GameObject _cubePrefab;
 
     private float _halver = 2f;
 
-    public void SpawnCubes(Vector3 position, Vector3 originalScale, int minCount, int maxCount, ColorChanger colorChanger, 
-        Splitter splitter, float originalMass)
+    public void Spawn(Vector3 position, Vector3 scale, int minCount, int maxCount, ColorChanger colorChanger, float mass)
     {
         int count = Random.Range(minCount, maxCount + 1);
-        Vector3 newScale = originalScale / _halver;
+        Vector3 newScale = scale / _halver;
 
         for (int i = 0; i < count; i++)
         {
@@ -20,21 +19,21 @@ public class Spawner : MonoBehaviour
                 Random.Range(-newScale.z / _halver, newScale.z / _halver)
             );
 
-            GameObject newCube = Instantiate(CubePrefab, position + offset, Quaternion.identity);
+            GameObject newCube = Instantiate(_cubePrefab, position + offset, Quaternion.identity);
             newCube.transform.localScale = newScale;
 
-            CubeController cubeController = newCube.GetComponent<CubeController>();
-            if (cubeController != null)
+            Cube cube = newCube.GetComponent<Cube>();
+
+            if (cube != null)
             {
-                cubeController.ColorChanger = colorChanger;
-                cubeController.Splitter = splitter;
+                cube.SetColorChanger(colorChanger);
 
-                float newMass = originalMass / _halver;
-                cubeController.SetMass(newMass);
+                float newMass = mass / _halver;
+                cube.SetMass(newMass);
 
-                if (cubeController.ColorChanger != null)
+                if (cube.ColorChanger != null)
                 {
-                    cubeController.ChangeColor();
+                    cube.ChangeColor();
                 }
             }
         }
